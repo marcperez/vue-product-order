@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-    <costumer-details></costumer-details>
+    <app-header :customer="order.customer"></app-header>
+    <customer-details :requested="order.placedAt" :customer="order.customer"></customer-details>
     <status-details></status-details>
     <item-list></item-list>
   </div>
@@ -10,7 +10,7 @@
 <script>
 import postData from './data/data.json'
 import AppHeader from './components/AppHeader.vue'
-import CostumerDetails from './components/CostumerDetails.vue'
+import CustomerDetails from './components/CustomerDetails.vue'
 import StatusDetails from './components/StatusDetails.vue'
 import ItemList from './components/ItemList.vue'
 
@@ -18,12 +18,12 @@ export default {
   name: 'app',
   data () {
     return {
-      postData: postData.data
+      order: postData.data
     }
   },
   components: {
     AppHeader,
-    CostumerDetails,
+    CustomerDetails,
     StatusDetails,
     ItemList
   }

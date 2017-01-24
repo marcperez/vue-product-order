@@ -10,8 +10,8 @@
         </div>
         <div class="col-xs-8">
           <p class="costumer-info">
-            <span class="costumer-info__name">Mevr de Boer</span>
-            <small class="costumer-info__id">7487473287</small>
+            <span class="costumer-info__name">{{ customer.name }}</span>
+            <small class="costumer-info__id">{{ customer.id }}</small>
           </p>
         </div>
         <div class="col-xs-2">
@@ -28,6 +28,7 @@
 
 <script>
 export default {
+  props: ['customer'],
   name: 'app-header',
   data () {
     return {
