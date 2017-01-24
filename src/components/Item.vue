@@ -1,7 +1,8 @@
 <template>
   <li class="row product">
     <div class="col-xs-2">
-      <checkbox></checkbox>
+      <checkbox :value="item.status" true-value="RESERVED" false-value="NEW"
+        @input="updateItemStatus"></checkbox>
     </div>
     <div class="col-xs-3 product__image">
       <img :src="item.product.imageUrl" alt="">
@@ -22,6 +23,11 @@ export default {
     return {
     }
   },
+  methods: {
+    updateItemStatus (newStatus) {
+      this.item.status = newStatus
+    }
+  },
   components: {
     Checkbox
   }
@@ -38,7 +44,7 @@ export default {
   }
 
   .product__title {
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0;
     font-weight: bold;
     text-transform: uppercase;

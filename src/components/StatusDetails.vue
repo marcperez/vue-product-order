@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xs-4 status-details__section">
           <strong class="status-details__header">Status</strong>
-          In Behandeling
+          {{ status }}
         </div>
         <div class="col-xs-3 status-details__section">
           <strong class="status-details__header">Door</strong>
@@ -32,10 +32,6 @@ export default {
     },
     assignedTime () {
       return moment(this.assignedAt).format('HH:mm')
-    }
-  },
-  data () {
-    return {
     }
   }
 }

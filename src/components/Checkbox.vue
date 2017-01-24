@@ -1,17 +1,35 @@
 <template>
     <div class="checkbox">
-        <input type="checkbox" class="checkbox__input" :id="'checkbox-' + _uid" checked="checked">
+        <input type="checkbox" class="checkbox__input" :id="'checkbox-' + _uid" 
+          true-value="RESERVED" false-value="NEW" v-model="toggle">
         <label class="checkbox__label" :for="'checkbox-' + _uid">
+          <slot></slot>
         </label>
     </div>
 </template>
 
 <script>
 export default {
-  props: ['label'],
+  props: {
+    value: null,
+    trueValue: {
+      type: String,
+      default: 'true'
+    },
+    falseValue: {
+      type: String,
+      default: 'false'
+    }
+  },
   name: 'checkbox',
   data () {
     return {
+      toggle: this.value
+    }
+  },
+  watch: {
+    toggle (newVal) {
+      this.$emit('input', newVal)
     }
   }
 }
