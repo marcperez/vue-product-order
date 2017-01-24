@@ -1,10 +1,7 @@
 <template>
   <div>
     <ul class="product-list">
-      <item></item>
-      <item></item>
-      <item></item>
-      <item></item>
+      <item v-for="item in items" :item="item"></item>
     </ul>
   </div>
 </template>
@@ -13,6 +10,7 @@
 import Item from './Item.vue'
 
 export default {
+  props: ['items'],
   name: 'item-list',
   components: {
     Item

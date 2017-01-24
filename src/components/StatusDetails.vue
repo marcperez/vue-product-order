@@ -8,11 +8,12 @@
         </div>
         <div class="col-xs-3 status-details__section">
           <strong class="status-details__header">Door</strong>
-          Mark
+          {{ assignee.name }}
         </div>
         <div class="col-xs-5 status-details__section">
           <strong class="status-details__header">Om</strong>
-          10:30 <small class="status-details__date">(25-05-2016)</small>
+          {{ assignedTime }}
+          <small class="status-details__date">({{ assignedDate }})</small>
         </div>
       </div>  
     </div>
@@ -20,8 +21,19 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
+  props: ['status', 'assignee', 'assignedAt'],
   name: 'status-details',
+  computed: {
+    assignedDate () {
+      return moment(this.assignedAt).format('DD-MM-YYYY')
+    },
+    assignedTime () {
+      return moment(this.assignedAt).format('HH:mm')
+    }
+  },
   data () {
     return {
     }

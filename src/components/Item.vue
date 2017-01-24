@@ -4,11 +4,11 @@
       <checkbox></checkbox>
     </div>
     <div class="col-xs-3 product__image">
-      <img src="//placehold.it/57/ffffff/000000" alt="">
+      <img :src="item.product.imageUrl" alt="">
     </div>
     <div class="col-xs-7">
-      <h2 class="product__title">Item</h2>
-      <p class="product__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, quod.</p>
+      <h2 class="product__title">{{ item.product.name }}</h2>
+      <p class="product__description">{{ item.product.description }}</p>
     </div>
   </li>    
 </template>
@@ -16,6 +16,7 @@
 <script>
 import Checkbox from './Checkbox.vue'
 export default {
+  props: ['item'],
   name: 'item',
   data () {
     return {
