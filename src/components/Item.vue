@@ -11,6 +11,9 @@
       <h2 class="product__title">{{ item.product.name }}</h2>
       <p class="product__description">{{ item.product.description }}</p>
     </div>
+    <div class="product__chevron">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </div>
   </li>    
 </template>
 
@@ -37,6 +40,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .product { 
+    position: relative;
     list-style: none; 
     padding: 20px 0;
     margin: 0 10px;
@@ -59,5 +63,14 @@ export default {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+  }
+
+  .product__chevron {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7.5px;
+    color: #acacac;
+    font-size: 11px;
   }
 </style>
